@@ -22,13 +22,24 @@ bundle from `{{ b.cluster_url }}`.*
 ## What's working ({{ wins | length }})
 
 {% for w in wins -%}
-- **{{ w.title }}.** {{ w.detail }}
+- **{{ w.title }}.** {{ w.detail }}{% if w.framework_impacts %} *Reinforces:* {{ w.affects_summary() }}.{% endif %}
 {% endfor %}
 
 ## Where to focus next ({{ risks | length }})
 
+{% set total_unmet_controls = risks | sum(attribute='affected_control_count') %}
+{% set affected_frameworks = risks | map(attribute='affected_frameworks') | sum(start=[]) | unique | list %}
+{% if total_unmet_controls > 0 %}
+> **Compliance reach.** Addressing the items below would help close
+> **~{{ total_unmet_controls }} not-yet-met controls** across **{{ affected_frameworks | length }} frameworks**
+> ({{ affected_frameworks | join(', ') }}). The "Affects" column lists the
+> framework and the count of controls per row.
+{% endif %}
+
+| # | Risk | Category | Impact | Affects |
+|---:|---|---|---:|---|
 {% for r in risks -%}
-- **{{ r.title }}** *(category: {{ r.category }}; estimated +{{ r.impact_points }} pts if addressed).* {{ r.detail }}
+| {{ loop.index }} | **{{ r.title }}** — {{ r.detail }} | {{ r.category }} | +{{ r.impact_points }} pts | {{ r.affects_summary() }} |
 {% endfor %}
 
 ---

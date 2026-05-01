@@ -373,20 +373,93 @@ well</h2>
 <h3 id="agent-coverage-at-957">Agent coverage at 95.7%</h3>
 <p>Strong agent coverage means flow analytics, ADM recommendations, and
 policy enforcement are operating on the real estate, not a sample.</p>
+<p><strong>Compliance reinforcement.</strong> This capability
+supports:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.308(a)(1)(ii)(A)</code> (risk
+analysis requires knowing what&#39;s in scope); <code>164.310(c)</code>
+(workstation security depends on inventory)</li>
+<li><strong>PCI-DSS</strong> — <code>1.2.1</code> (network controls
+depend on knowing what they protect)</li>
+<li><strong>NIST-800-53</strong> — <code>AU-2</code> (audit events
+presume coverage of every workload); <code>SI-4</code> (system
+monitoring requires telemetry from every workload)</li>
+<li><strong>DORA</strong> — <code>Art.8</code> (ICT risk management
+requires complete asset inventory); <code>Art.9</code> (ICT security
+depends on knowing the estate)</li>
+</ul>
 <h3 id="312-policies-authored">312 policies authored</h3>
 <p>A populated policy library indicates segmentation is past initial
 discovery and into active design.</p>
+<p><strong>Compliance reinforcement.</strong> This capability
+supports:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.308(a)(4)</code> (information
+access management is enforced via policy); <code>164.312(a)(1)</code>
+(access control is implemented as policy)</li>
+<li><strong>PCI-DSS</strong> — <code>1.2.1</code> (network security
+controls are the segmentation evidence); <code>1.3</code> (no direct
+internet access to CDE requires enforced policy); <code>12.5.3</code>
+(segmentation effectiveness is tested annually)</li>
+<li><strong>NIST-800-53</strong> — <code>AC-3</code> (access enforcement
+is implemented as policy); <code>AC-4</code> (information flow
+enforcement is the segmentation control); <code>CM-7</code> (least
+functionality limits flows to what is needed); <code>SC-7</code>
+(boundary protection is segmentation)</li>
+<li><strong>DORA</strong> — <code>Art.9</code> (ICT security includes
+segmentation of critical assets)</li>
+</ul>
 <h3 id="79-of-policies-in-enforce-mode">79% of policies in enforce
 mode</h3>
 <p>Enforcement-mode policies are the difference between an audit
 narrative and a control. This ratio is the single best evidence the
 program is operational.</p>
+<p><strong>Compliance reinforcement.</strong> This capability
+supports:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.308(a)(4)</code> (information
+access management is enforced via policy); <code>164.312(a)(1)</code>
+(access control is implemented as policy)</li>
+<li><strong>PCI-DSS</strong> — <code>1.2.1</code> (network security
+controls are the segmentation evidence); <code>1.3</code> (no direct
+internet access to CDE requires enforced policy); <code>12.5.3</code>
+(segmentation effectiveness is tested annually)</li>
+<li><strong>NIST-800-53</strong> — <code>AC-3</code> (access enforcement
+is implemented as policy); <code>AC-4</code> (information flow
+enforcement is the segmentation control); <code>CM-7</code> (least
+functionality limits flows to what is needed); <code>SC-7</code>
+(boundary protection is segmentation)</li>
+<li><strong>DORA</strong> — <code>Art.9</code> (ICT security includes
+segmentation of critical assets)</li>
+</ul>
 <h3 id="47-scopes-defined">47 scopes defined</h3>
 <p>A scope hierarchy this deep means the segmentation model reflects
 organisational reality - prerequisite for least-privilege at scale.</p>
+<p><strong>Compliance reinforcement.</strong> This capability
+supports:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.308(a)(1)(ii)(A)</code> (risk
+analysis requires knowing what&#39;s in scope); <code>164.310(c)</code>
+(workstation security depends on inventory)</li>
+<li><strong>PCI-DSS</strong> — <code>1.2.1</code> (network controls
+depend on knowing what they protect)</li>
+<li><strong>NIST-800-53</strong> — <code>AU-2</code> (audit events
+presume coverage of every workload); <code>SI-4</code> (system
+monitoring requires telemetry from every workload)</li>
+<li><strong>DORA</strong> — <code>Art.8</code> (ICT risk management
+requires complete asset inventory); <code>Art.9</code> (ICT security
+depends on knowing the estate)</li>
+</ul>
 <hr />
 <h2 id="what-wed-recommend-addressing">What we&#39;d recommend
 addressing</h2>
+<blockquote>
+<p><strong>Why these matter beyond the score.</strong> The 4 items below
+together touch <strong>7 not-yet-met controls</strong> across <strong>4
+frameworks</strong> (HIPAA, NIST-800-53, PCI-DSS, DORA). Each item lists
+the specific control IDs it would help close, so the work can be tracked
+back to a compliance line item.</p>
+</blockquote>
 <h3 id="few-absolute-policies-in-place">Few absolute policies in
 place</h3>
 <p><em>Category: segmentation · Estimated posture uplift if addressed:
@@ -394,6 +467,14 @@ place</h3>
 <p>Absolute policies are the right tool for crown-jewel isolation (PHI,
 cardholder data, regulated systems). Their absence indicates the
 segmentation strategy is still permissive-by-default.</p>
+<p><strong>Compliance impact if addressed.</strong> Closing this gap
+helps move:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.312(e)(1)</code> (transmission
+security relies on segmentation)</li>
+<li><strong>NIST-800-53</strong> — <code>SC-7(5)</code> (deny-by-default
+requires absolute policies)</li>
+</ul>
 <h3 id="64-policies-remain-in-monitor-mode">64 policies remain in
 monitor mode</h3>
 <p><em>Category: segmentation · Estimated posture uplift if addressed:
@@ -401,12 +482,28 @@ monitor mode</h3>
 <p>Monitor-mode policies generate evidence but do not block lateral
 movement. Promoting reviewed policies to enforce directly improves the
 segmentation score component.</p>
+<p><strong>Compliance impact if addressed.</strong> Closing this gap
+helps move:</p>
+<ul>
+<li><strong>HIPAA</strong> — <code>164.312(e)(1)</code> (transmission
+security relies on segmentation)</li>
+<li><strong>NIST-800-53</strong> — <code>SC-7(5)</code> (deny-by-default
+requires absolute policies)</li>
+</ul>
 <h3 id="7-critical-cves-on-workloads">7 critical CVEs on workloads</h3>
 <p><em>Category: hygiene · Estimated posture uplift if addressed: +3
 pts</em></p>
 <p>CSW correlates package CVEs to running processes. Each critical CVE
 on an internet-reachable workload is a candidate for escalation to
 patching or compensating policy.</p>
+<p><strong>Compliance impact if addressed.</strong> Closing this gap
+helps move:</p>
+<ul>
+<li><strong>PCI-DSS</strong> — <code>11.3</code> (vulnerability scanning
+evidence drives this control)</li>
+<li><strong>DORA</strong> — <code>Art.10</code> (detection of ICT
+vulnerabilities)</li>
+</ul>
 <h3 id="208-workloads-without-an-agent">208 workloads without an
 agent</h3>
 <p><em>Category: visibility · Estimated posture uplift if addressed: +1
@@ -414,6 +511,12 @@ pts</em></p>
 <p>Workloads outside agent coverage are invisible to flow analytics,
 ADM, and policy enforcement. Closing this gap unlocks visibility-driven
 controls in every framework.</p>
+<p><strong>Compliance impact if addressed.</strong> Closing this gap
+helps move:</p>
+<ul>
+<li><strong>PCI-DSS</strong> — <code>11.3</code> (penetration-test scope
+is set by inventory)</li>
+</ul>
 <hr />
 <h2 id="suggested-30-day-plan">Suggested 30-day plan</h2>
 <p>The plan is sequenced so each week&#39;s work feeds the next; weeks 1-2

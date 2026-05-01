@@ -43,11 +43,31 @@ The same evidence bundle is replayable; nothing here was hand-curated.
 
 {{ w.detail }}
 
+{% if w.framework_impacts -%}
+**Compliance reinforcement.** This capability supports:
+
+{% for fi in w.framework_impacts -%}
+- **{{ fi.framework }}** — {% for cid, why in fi.controls %}`{{ cid }}` ({{ why }}){% if not loop.last %}; {% endif %}{% endfor %}
+{% endfor %}
+
+{% endif -%}
+
 {% endfor %}
 
 ---
 
 ## What we'd recommend addressing
+
+{% set total_unmet_controls = risks | sum(attribute='affected_control_count') %}
+{% set affected_frameworks = risks | map(attribute='affected_frameworks') | sum(start=[]) | unique | list %}
+{% if total_unmet_controls > 0 %}
+> **Why these matter beyond the score.** The {{ risks | length }} items below
+> together touch **{{ total_unmet_controls }} not-yet-met controls** across
+> **{{ affected_frameworks | length }} frameworks**
+> ({{ affected_frameworks | join(', ') }}). Each item lists the specific
+> control IDs it would help close, so the work can be tracked back to a
+> compliance line item.
+{% endif %}
 
 {% for r in risks -%}
 ### {{ r.title }}
@@ -55,6 +75,15 @@ The same evidence bundle is replayable; nothing here was hand-curated.
 *Category: {{ r.category }} · Estimated posture uplift if addressed: +{{ r.impact_points }} pts*
 
 {{ r.detail }}
+
+{% if r.framework_impacts -%}
+**Compliance impact if addressed.** Closing this gap helps move:
+
+{% for fi in r.framework_impacts -%}
+- **{{ fi.framework }}** — {% for cid, why in fi.controls %}`{{ cid }}` ({{ why }}){% if not loop.last %}; {% endif %}{% endfor %}
+{% endfor %}
+
+{% endif -%}
 
 {% endfor %}
 

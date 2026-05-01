@@ -345,43 +345,86 @@ live evidence bundle from
 <ul>
 <li><strong>Agent coverage at 95.7%.</strong> Strong agent coverage
 means flow analytics, ADM recommendations, and policy enforcement are
-operating on the real estate, not a sample.</li>
+operating on the real estate, not a sample. <em>Reinforces:</em> HIPAA
+(2); PCI-DSS (1); NIST-800-53 (2); DORA (2).</li>
 <li><strong>312 policies authored.</strong> A populated policy library
-indicates segmentation is past initial discovery and into active
-design.</li>
+indicates segmentation is past initial discovery and into active design.
+<em>Reinforces:</em> HIPAA (2); PCI-DSS (3); NIST-800-53 (4); DORA
+(1).</li>
 <li><strong>79% of policies in enforce mode.</strong> Enforcement-mode
 policies are the difference between an audit narrative and a control.
-This ratio is the single best evidence the program is operational.</li>
+This ratio is the single best evidence the program is operational.
+<em>Reinforces:</em> HIPAA (2); PCI-DSS (3); NIST-800-53 (4); DORA
+(1).</li>
 <li><strong>47 scopes defined.</strong> A scope hierarchy this deep
 means the segmentation model reflects organisational reality -
-prerequisite for least-privilege at scale.</li>
+prerequisite for least-privilege at scale. <em>Reinforces:</em> HIPAA
+(2); PCI-DSS (1); NIST-800-53 (2); DORA (2).</li>
 <li><strong>Evidence collected for 4 frameworks.</strong> Re-using a
 single set of CSW evidence across multiple frameworks is the headline
-value proposition - this tenant is realising it.</li>
+value proposition - this tenant is realising it. <em>Reinforces:</em>
+HIPAA (6); PCI-DSS (5); NIST-800-53 (7); DORA (3).</li>
 </ul>
 <h2 id="where-to-focus-next-4">Where to focus next (4)</h2>
-<ul>
-<li><strong>Few absolute policies in place</strong> <em>(category:
-segmentation; estimated +6 pts if addressed).</em> Absolute policies are
-the right tool for crown-jewel isolation (PHI, cardholder data,
+<blockquote>
+<p><strong>Compliance reach.</strong> Addressing the items below would
+help close <strong>~7 not-yet-met controls</strong> across <strong>4
+frameworks</strong> (HIPAA, NIST-800-53, PCI-DSS, DORA). The &quot;Affects&quot;
+column lists the framework and the count of controls per row.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">#</th>
+<th>Risk</th>
+<th>Category</th>
+<th style="text-align: right;">Impact</th>
+<th>Affects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Few absolute policies in place</strong> — Absolute policies
+are the right tool for crown-jewel isolation (PHI, cardholder data,
 regulated systems). Their absence indicates the segmentation strategy is
-still permissive-by-default.</li>
-<li><strong>64 policies remain in monitor mode</strong> <em>(category:
-segmentation; estimated +3 pts if addressed).</em> Monitor-mode policies
-generate evidence but do not block lateral movement. Promoting reviewed
-policies to enforce directly improves the segmentation score
-component.</li>
-<li><strong>7 critical CVEs on workloads</strong> <em>(category:
-hygiene; estimated +3 pts if addressed).</em> CSW correlates package
-CVEs to running processes. Each critical CVE on an internet-reachable
-workload is a candidate for escalation to patching or compensating
-policy.</li>
-<li><strong>208 workloads without an agent</strong> <em>(category:
-visibility; estimated +1 pts if addressed).</em> Workloads outside agent
-coverage are invisible to flow analytics, ADM, and policy enforcement.
-Closing this gap unlocks visibility-driven controls in every
-framework.</li>
-</ul>
+still permissive-by-default.</td>
+<td>segmentation</td>
+<td style="text-align: right;">+6 pts</td>
+<td>HIPAA (1); NIST-800-53 (1)</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>64 policies remain in monitor mode</strong> — Monitor-mode
+policies generate evidence but do not block lateral movement. Promoting
+reviewed policies to enforce directly improves the segmentation score
+component.</td>
+<td>segmentation</td>
+<td style="text-align: right;">+3 pts</td>
+<td>HIPAA (1); NIST-800-53 (1)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>7 critical CVEs on workloads</strong> — CSW correlates
+package CVEs to running processes. Each critical CVE on an
+internet-reachable workload is a candidate for escalation to patching or
+compensating policy.</td>
+<td>hygiene</td>
+<td style="text-align: right;">+3 pts</td>
+<td>PCI-DSS (1); DORA (1)</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>208 workloads without an agent</strong> — Workloads outside
+agent coverage are invisible to flow analytics, ADM, and policy
+enforcement. Closing this gap unlocks visibility-driven controls in
+every framework.</td>
+<td>visibility</td>
+<td style="text-align: right;">+1 pts</td>
+<td>PCI-DSS (1)</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="30-day-plan">30-day plan</h2>
 <table>

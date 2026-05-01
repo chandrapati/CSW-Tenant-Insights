@@ -9,6 +9,7 @@ from .posture import PostureScore, score_posture
 from .risks import Risk, top_risks
 from .wins import Win, top_wins
 from .actions import Action, action_plan
+from .framework_map import FrameworkImpact
 
 __all__ = [
     "EvidenceBundle",
@@ -21,4 +22,5 @@ __all__ = [
     "top_wins",
     "Action",
     "action_plan",
+    "FrameworkImpact",
 ]
