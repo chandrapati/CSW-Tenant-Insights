@@ -47,17 +47,26 @@ pip install -e .
 # Render both flavors against the synthetic ACME bundle
 csw-insights render --bundle examples/acme-2026-05-01.json
 
-# Same for D.R. Horton placeholder bundle
-csw-insights render --bundle examples/drhorton-2026-05-01.json
+# Same for the customer 1 placeholder bundle
+csw-insights render --bundle examples/customer1-2026-05-01.json
 
 # Side-by-side comparison
 csw-insights compare \
   --baseline examples/acme-2026-05-01.json \
-  --candidate examples/drhorton-2026-05-01.json
+  --candidate examples/customer1-2026-05-01.json
 ```
 
 Output lands in `out/<tenant>/`. Convert to DOCX/PDF/HTML with the same
 pandoc pipeline used in `CSW-Compliance-Mapping`.
+
+## Naming convention for tenants
+
+Tenants under version control use **generic identifiers** (`customer1`,
+`customer2`, …), never the customer's real name. The mapping from
+identifier to real customer lives only in your local
+`~/.csw/tenants.yaml` credential file. This keeps the repo safe to share
+with internal collaborators and resilient to accidental
+screenshot/transcript leaks.
 
 ## Live tenant run
 
@@ -75,7 +84,7 @@ pandoc pipeline used in `CSW-Compliance-Mapping`.
    acme:
      api_key:    "…"
      api_secret: "…"
-   drhorton:
+   customer1:
      api_key:    "…"
      api_secret: "…"
    ```
@@ -98,7 +107,7 @@ CSW-Tenant-Insights/
 ├── tenants/
 │   ├── _template/        copy this to add a new tenant
 │   ├── acme/             synthetic demo tenant
-│   └── drhorton/         live pilot configuration
+│   └── customer1/        live pilot configuration (real customer name lives only in your local creds)
 ├── tools/
 │   └── cli.py            csw-insights entry point
 └── examples/             synthetic evidence bundles for demos
@@ -115,7 +124,7 @@ focused on *narrative* and *insight*, not *catalog content*.
 ## Status
 
 - [x] Insights layer + both flavor renderers
-- [x] Synthetic demo bundles for ACME and D.R. Horton
+- [x] Synthetic demo bundles for ACME and customer 1
 - [x] CLI: `render`, `compare`
 - [ ] Live `collect` wired to upstream evidence_bundle.py
 - [ ] DOCX / PDF / HTML pipeline integrated (use the build-html.py from CSW-Compliance-Mapping)

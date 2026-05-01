@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "tenant": "drhorton",
+    "tenant": "customer1",
     "generated_at": "2026-05-01T18:30:00Z",
-    "cluster_url": "https://csw.drhorton.example",
+    "cluster_url": "https://csw.customer1.example",
     "collector_version": "0.1.0",
     "synthetic": true,
     "note": "Synthetic placeholder. Replace with real collection output once live access is available."

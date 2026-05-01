@@ -1,0 +1,29 @@
+# First customer pilot tenant. Cluster URL and credentials_ref match the
+# entry in your local ~/.csw/tenants.yaml — the HMAC keys themselves never
+# enter this repository.
+#
+# This file uses a generic identifier (customer1) on purpose; the real
+# customer name should never appear in any file under version control.
+
+tenant_id: customer1
+display_name: Customer 1 (pilot)
+cluster_url: https://csw.customer1.example   # replace with the actual cluster URL
+credentials_ref: customer1
+
+frameworks:
+  - HIPAA
+  - PCI-DSS
+  - NIST-800-53
+  - SOC2
+
+catalogs:
+  HIPAA: ../../upstream/CSW-API-Compliance-Automation/catalog/hipaa.yaml
+  PCI-DSS: ../../upstream/CSW-API-Compliance-Automation/catalog/pci-dss-v4.yaml
+  NIST-800-53: ../../upstream/CSW-API-Compliance-Automation/catalog/nist-800-53-r5.yaml
+  SOC2: ../../upstream/CSW-API-Compliance-Automation/catalog/soc2.yaml
+
+flavors:
+  - ciso
+  - pov
+
+scope_filter: []
