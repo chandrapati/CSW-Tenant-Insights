@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CSW-POV-Findings-acme</title>
+  <style>
+
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style>
+:root {
+--fg: #1f2328;
+--fg-muted: #59636e;
+--bg: #ffffff;
+--bg-muted: #f6f8fa;
+--border: #d1d9e0;
+--link: #0969da;
+--link-hover: #0349b4;
+--code-bg: #f6f8fa;
+--accent: #cf222e;
+--max-width: 920px;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--fg: #e6edf3;
+--fg-muted: #9198a1;
+--bg: #0d1117;
+--bg-muted: #151b23;
+--border: #3d444d;
+--link: #4493f8;
+--link-hover: #6cb6ff;
+--code-bg: #151b23;
+--accent: #ff7b72;
+}
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+margin: 0 auto;
+max-width: var(--max-width);
+padding: 2rem 1.25rem 4rem;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+font-size: 16px;
+line-height: 1.6;
+color: var(--fg);
+background: var(--bg);
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 2rem;
+margin-bottom: 1rem;
+font-weight: 600;
+line-height: 1.25;
+}
+h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: .3rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5, h6 { font-size: .875rem; color: var(--fg-muted); }
+p, ul, ol, blockquote, pre, table { margin: 0 0 1rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+ul, ol { padding-left: 1.6rem; }
+li + li { margin-top: .15rem; }
+blockquote {
+margin: 0 0 1rem;
+padding: .5rem 1rem;
+color: var(--fg-muted);
+border-left: .25rem solid var(--border);
+background: var(--bg-muted);
+border-radius: 0 6px 6px 0;
+}
+code, pre, kbd, samp {
+font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+font-size: .9em;
+}
+code {
+background: var(--code-bg);
+padding: .15rem .35rem;
+border-radius: 4px;
+}
+pre {
+background: var(--code-bg);
+padding: 1rem;
+border-radius: 6px;
+overflow: auto;
+font-size: .85rem;
+line-height: 1.45;
+}
+pre code { background: transparent; padding: 0; font-size: inherit; }
+table {
+display: block;
+width: 100%;
+overflow: auto;
+border-collapse: collapse;
+}
+th, td {
+border: 1px solid var(--border);
+padding: .5rem .75rem;
+vertical-align: top;
+text-align: left;
+}
+th {
+background: var(--bg-muted);
+font-weight: 600;
+}
+tbody tr:nth-child(2n) { background: var(--bg-muted); }
+hr {
+border: 0;
+height: 1px;
+background: var(--border);
+margin: 2rem 0;
+}
+img { max-width: 100%; height: auto; }
+
+.doc-meta {
+margin: 0 0 2rem;
+padding: .75rem 1rem;
+border: 1px solid var(--border);
+border-radius: 6px;
+background: var(--bg-muted);
+font-size: .9rem;
+color: var(--fg-muted);
+}
+.doc-meta a { font-weight: 500; }
+
+@media print {
+body { max-width: none; padding: 0; color: #000; background: #fff; }
+a { color: #000; text-decoration: underline; }
+pre, code, blockquote { background: #f5f5f5; }
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CSW-POV-Findings-acme</h1>
+</header>
+<h1 id="csw-proof-of-value-findings--acme">CSW Proof-of-Value Findings —
+acme</h1>
+<p><em>Generated 2026-05-01T18:30:00Z from live evidence in
+<code>https://csw.acme-demo.local</code>. Use this as the talk-track for
+the readout meeting; it is intentionally denser than the CISO
+brief.</em></p>
+<hr />
+<h2 id="what-we-looked-at">What we looked at</h2>
+<p>In a single read of the tenant we collected:</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workloads inventoried</td>
+<td style="text-align: right;">4,820</td>
+</tr>
+<tr>
+<td>Workloads reporting via agent</td>
+<td style="text-align: right;">4,612 (95.7%)</td>
+</tr>
+<tr>
+<td>Scopes in hierarchy</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr>
+<td>Policies authored</td>
+<td style="text-align: right;">312</td>
+</tr>
+<tr>
+<td>Policies in enforce mode</td>
+<td style="text-align: right;">248</td>
+</tr>
+<tr>
+<td>Absolute policies (highest precedence)</td>
+<td style="text-align: right;">41</td>
+</tr>
+<tr>
+<td>Critical CVEs on workloads</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>High CVEs on workloads</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr>
+<td>Enforcement alerts in 24h</td>
+<td style="text-align: right;">24</td>
+</tr>
+</tbody>
+</table>
+<p>The same evidence bundle is replayable; nothing here was
+hand-curated.</p>
+<hr />
+<h2 id="posture-at-a-glance">Posture at a glance</h2>
+<p><strong>Score: 75 / 100 (Grade C)</strong></p>
+<ul>
+<li><strong>Visibility — 24 pts.</strong> 4612/4820 workloads reporting
+(95.7% agent coverage).</li>
+<li><strong>Segmentation — 18 pts.</strong> 312 policies, 248 in enforce
+mode (79%), 41 absolute (13%).</li>
+<li><strong>Hygiene — 12 pts.</strong> 7 critical, 64 high CVEs detected
+on workloads.</li>
+<li><strong>Operations — 13 pts.</strong> 24 enforcement alerts in last
+24h.</li>
+<li><strong>Compliance — 8 pts.</strong> 21/25 controls marked &#39;met&#39;
+across 4 frameworks.</li>
+</ul>
+<hr />
+<h2 id="what-youre-already-doing-well">What you&#39;re already doing
+well</h2>
+<h3 id="agent-coverage-at-957">Agent coverage at 95.7%</h3>
+<p>Strong agent coverage means flow analytics, ADM recommendations, and
+policy enforcement are operating on the real estate, not a sample.</p>
+<h3 id="312-policies-authored">312 policies authored</h3>
+<p>A populated policy library indicates segmentation is past initial
+discovery and into active design.</p>
+<h3 id="79-of-policies-in-enforce-mode">79% of policies in enforce
+mode</h3>
+<p>Enforcement-mode policies are the difference between an audit
+narrative and a control. This ratio is the single best evidence the
+program is operational.</p>
+<h3 id="47-scopes-defined">47 scopes defined</h3>
+<p>A scope hierarchy this deep means the segmentation model reflects
+organisational reality - prerequisite for least-privilege at scale.</p>
+<hr />
+<h2 id="what-wed-recommend-addressing">What we&#39;d recommend
+addressing</h2>
+<h3 id="few-absolute-policies-in-place">Few absolute policies in
+place</h3>
+<p><em>Category: segmentation · Estimated posture uplift if addressed:
++6 pts</em></p>
+<p>Absolute policies are the right tool for crown-jewel isolation (PHI,
+cardholder data, regulated systems). Their absence indicates the
+segmentation strategy is still permissive-by-default.</p>
+<h3 id="64-policies-remain-in-monitor-mode">64 policies remain in
+monitor mode</h3>
+<p><em>Category: segmentation · Estimated posture uplift if addressed:
++3 pts</em></p>
+<p>Monitor-mode policies generate evidence but do not block lateral
+movement. Promoting reviewed policies to enforce directly improves the
+segmentation score component.</p>
+<h3 id="7-critical-cves-on-workloads">7 critical CVEs on workloads</h3>
+<p><em>Category: hygiene · Estimated posture uplift if addressed: +3
+pts</em></p>
+<p>CSW correlates package CVEs to running processes. Each critical CVE
+on an internet-reachable workload is a candidate for escalation to
+patching or compensating policy.</p>
+<h3 id="208-workloads-without-an-agent">208 workloads without an
+agent</h3>
+<p><em>Category: visibility · Estimated posture uplift if addressed: +1
+pts</em></p>
+<p>Workloads outside agent coverage are invisible to flow analytics,
+ADM, and policy enforcement. Closing this gap unlocks visibility-driven
+controls in every framework.</p>
+<hr />
+<h2 id="suggested-30-day-plan">Suggested 30-day plan</h2>
+<p>The plan is sequenced so each week&#39;s work feeds the next; weeks 1-2
+are foundation moves, week 3 is the highest-leverage policy promotion,
+and week 4 closes the loop with a re-measurement.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Wk</th>
+<th>Action</th>
+<th>Owner</th>
+<th>Addresses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Close agent-coverage gap.</strong> Identify the 208
+workloads without an agent. Triage into: (a) deploy now, (b) excluded by
+policy, (c) decommission. Track in a single ticket; aim for 95%+
+coverage.</td>
+<td>Platform Engineering</td>
+<td>208 workloads without an agent</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Author absolute policies for crown jewels.</strong> Identify
+the top 3 crown-jewel scopes (databases of regulated data, payment
+systems, PHI stores). Draft absolute policies that take precedence over
+inherited rules.</td>
+<td>Security Architecture</td>
+<td>Few absolute policies in place</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Promote vetted policies to enforce mode.</strong> Run the
+30-day flow review on monitor-mode policies for top 3 scopes. Promote
+those with no false-positive flow violations to enforce.</td>
+<td>Security Operations</td>
+<td>64 policies remain in monitor mode</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Address top critical CVEs.</strong> Pull the CSW
+vulnerability dashboard, sort by internet exposure + severity, dispatch
+top 10 to patching or compensating-policy workstreams.</td>
+<td>Vulnerability Management</td>
+<td>7 critical CVEs on workloads</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Refresh evidence and report.</strong> Re-run csw-insights
+against the tenant. Compare posture score to baseline; share delta with
+steering committee.</td>
+<td>Compliance / GRC</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="how-csw-shows-up-across-the-frameworks-you-care-about">How CSW
+shows up across the frameworks you care about</h2>
+<p>For each framework below, the runbooks and reports in
+<code>CSW-Compliance-Mapping</code> walk through the specific controls
+this evidence supports. The numbers here are the <em>current</em> state
+of controls evaluated in this tenant.</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th style="text-align: right;">Controls evaluated</th>
+<th style="text-align: right;">Met</th>
+<th style="text-align: right;">Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HIPAA</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">86%</td>
+</tr>
+<tr>
+<td>PCI-DSS</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">83%</td>
+</tr>
+<tr>
+<td>NIST-800-53</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">88%</td>
+</tr>
+<tr>
+<td>DORA</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">75%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="demo-able-artefacts">Demo-able artefacts</h2>
+<p>The same evidence bundle that produced this report can also
+drive:</p>
+<ul>
+<li><strong>ADM (Application Dependency Mapping) walk-through</strong> —
+visualise the highest-blast-radius workloads we identified.</li>
+<li><strong>Policy what-if</strong> — replay 24h of flow data against a
+candidate policy to show enforcement impact before promoting.</li>
+<li><strong>Vulnerability dashboard</strong> — sort the critical CVEs
+above by internet exposure to pick the top 10 patching candidates.</li>
+<li><strong>Auditor-ready evidence bundle</strong> — the signed JSON
+used to render this report drops directly into the framework
+runbooks.</li>
+</ul>
+<hr />
+<h2 id="what-wed-like-to-do-next">What we&#39;d like to do next</h2>
+<ol type="1">
+<li>Walk through the top 3 risks above with your platform/security
+teams.</li>
+<li>Pick one risk to address this sprint; re-run
+<code>csw-insights</code> after.</li>
+<li>Use the resulting before/after delta as the proof point for the
+wider rollout business case.</li>
+</ol>
+<p><em>Materials, scripts, and templates are in
+<code>CSW-Tenant-Insights</code>. The underlying compliance narrative is
+in <code>CSW-Compliance-Mapping</code>. The evidence collection runs
+from <code>CSW-API-Compliance-Automation</code>.</em></p>
+</body>
+</html>

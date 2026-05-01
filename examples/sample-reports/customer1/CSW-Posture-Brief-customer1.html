@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CSW-Posture-Brief-customer1</title>
+  <style>
+
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style>
+:root {
+--fg: #1f2328;
+--fg-muted: #59636e;
+--bg: #ffffff;
+--bg-muted: #f6f8fa;
+--border: #d1d9e0;
+--link: #0969da;
+--link-hover: #0349b4;
+--code-bg: #f6f8fa;
+--accent: #cf222e;
+--max-width: 920px;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--fg: #e6edf3;
+--fg-muted: #9198a1;
+--bg: #0d1117;
+--bg-muted: #151b23;
+--border: #3d444d;
+--link: #4493f8;
+--link-hover: #6cb6ff;
+--code-bg: #151b23;
+--accent: #ff7b72;
+}
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+margin: 0 auto;
+max-width: var(--max-width);
+padding: 2rem 1.25rem 4rem;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+font-size: 16px;
+line-height: 1.6;
+color: var(--fg);
+background: var(--bg);
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 2rem;
+margin-bottom: 1rem;
+font-weight: 600;
+line-height: 1.25;
+}
+h1 { font-size: 2rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+h2 { font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: .3rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5, h6 { font-size: .875rem; color: var(--fg-muted); }
+p, ul, ol, blockquote, pre, table { margin: 0 0 1rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+ul, ol { padding-left: 1.6rem; }
+li + li { margin-top: .15rem; }
+blockquote {
+margin: 0 0 1rem;
+padding: .5rem 1rem;
+color: var(--fg-muted);
+border-left: .25rem solid var(--border);
+background: var(--bg-muted);
+border-radius: 0 6px 6px 0;
+}
+code, pre, kbd, samp {
+font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+font-size: .9em;
+}
+code {
+background: var(--code-bg);
+padding: .15rem .35rem;
+border-radius: 4px;
+}
+pre {
+background: var(--code-bg);
+padding: 1rem;
+border-radius: 6px;
+overflow: auto;
+font-size: .85rem;
+line-height: 1.45;
+}
+pre code { background: transparent; padding: 0; font-size: inherit; }
+table {
+display: block;
+width: 100%;
+overflow: auto;
+border-collapse: collapse;
+}
+th, td {
+border: 1px solid var(--border);
+padding: .5rem .75rem;
+vertical-align: top;
+text-align: left;
+}
+th {
+background: var(--bg-muted);
+font-weight: 600;
+}
+tbody tr:nth-child(2n) { background: var(--bg-muted); }
+hr {
+border: 0;
+height: 1px;
+background: var(--border);
+margin: 2rem 0;
+}
+img { max-width: 100%; height: auto; }
+
+.doc-meta {
+margin: 0 0 2rem;
+padding: .75rem 1rem;
+border: 1px solid var(--border);
+border-radius: 6px;
+background: var(--bg-muted);
+font-size: .9rem;
+color: var(--fg-muted);
+}
+.doc-meta a { font-weight: 500; }
+
+@media print {
+body { max-width: none; padding: 0; color: #000; background: #fff; }
+a { color: #000; text-decoration: underline; }
+pre, code, blockquote { background: #f5f5f5; }
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CSW-Posture-Brief-customer1</h1>
+</header>
+<h1 id="csw-posture-brief--customer1">CSW Posture Brief — customer1</h1>
+<p><em>One-page board update generated 2026-05-01T18:30:00Z. Source:
+live evidence bundle from
+<code>https://csw.customer1.example</code>.</em></p>
+<hr />
+<h2 id="posture-score">Posture score</h2>
+<blockquote>
+<p><strong>29 / 100 (F)</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Score</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visibility</td>
+<td style="text-align: right;">16 / 25</td>
+<td>1206/1880 workloads reporting (64.1% agent coverage).</td>
+</tr>
+<tr>
+<td>Segmentation</td>
+<td style="text-align: right;">6 / 30</td>
+<td>84 policies, 22 in enforce mode (26%), 4 absolute (5%).</td>
+</tr>
+<tr>
+<td>Hygiene</td>
+<td style="text-align: right;">3 / 20</td>
+<td>19 critical, 142 high CVEs detected on workloads.</td>
+</tr>
+<tr>
+<td>Operations</td>
+<td style="text-align: right;">1 / 15</td>
+<td>187 enforcement alerts in last 24h.</td>
+</tr>
+<tr>
+<td>Compliance</td>
+<td style="text-align: right;">3 / 10</td>
+<td>7/25 controls marked &#39;met&#39; across 4 frameworks.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="whats-working-1">What&#39;s working (1)</h2>
+<ul>
+<li><strong>Evidence collected for 4 frameworks.</strong> Re-using a
+single set of CSW evidence across multiple frameworks is the headline
+value proposition - this tenant is realising it.</li>
+</ul>
+<h2 id="where-to-focus-next-5">Where to focus next (5)</h2>
+<ul>
+<li><strong>62 policies remain in monitor mode</strong> <em>(category:
+segmentation; estimated +11 pts if addressed).</em> Monitor-mode
+policies generate evidence but do not block lateral movement. Promoting
+reviewed policies to enforce directly improves the segmentation score
+component.</li>
+<li><strong>674 workloads without an agent</strong> <em>(category:
+visibility; estimated +9 pts if addressed).</em> Workloads outside agent
+coverage are invisible to flow analytics, ADM, and policy enforcement.
+Closing this gap unlocks visibility-driven controls in every
+framework.</li>
+<li><strong>19 critical CVEs on workloads</strong> <em>(category:
+hygiene; estimated +9 pts if addressed).</em> CSW correlates package
+CVEs to running processes. Each critical CVE on an internet-reachable
+workload is a candidate for escalation to patching or compensating
+policy.</li>
+<li><strong>Few absolute policies in place</strong> <em>(category:
+segmentation; estimated +6 pts if addressed).</em> Absolute policies are
+the right tool for crown-jewel isolation (PHI, cardholder data,
+regulated systems). Their absence indicates the segmentation strategy is
+still permissive-by-default.</li>
+<li><strong>187 enforcement alerts in 24h</strong> <em>(category:
+operations; estimated +5 pts if addressed).</em> Sustained alert volume
+indicates either policy gaps (legitimate flows blocked) or active attack
+pressure. Both warrant SOC engagement and policy review.</li>
+</ul>
+<hr />
+<h2 id="30-day-plan">30-day plan</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Wk</th>
+<th>Action</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><strong>Close agent-coverage gap.</strong> Identify the 674
+workloads without an agent. Triage into: (a) deploy now, (b) excluded by
+policy, (c) decommission. Track in a single ticket; aim for 95%+
+coverage.</td>
+<td>Platform Engineering</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><strong>Promote vetted policies to enforce mode.</strong> Run the
+30-day flow review on monitor-mode policies for top 3 scopes. Promote
+those with no false-positive flow violations to enforce.</td>
+<td>Security Operations</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><strong>Author absolute policies for crown jewels.</strong> Identify
+the top 3 crown-jewel scopes (databases of regulated data, payment
+systems, PHI stores). Draft absolute policies that take precedence over
+inherited rules.</td>
+<td>Security Architecture</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><strong>Address top critical CVEs.</strong> Pull the CSW
+vulnerability dashboard, sort by internet exposure + severity, dispatch
+top 10 to patching or compensating-policy workstreams.</td>
+<td>Vulnerability Management</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td><strong>Tune enforcement alert noise.</strong> Categorise the past
+24h of alerts (legitimate block, missing exception, real attack). Build
+exception rules for the first two; route the third into incident
+response.</td>
+<td>Security Operations</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td><strong>Refresh evidence and report.</strong> Re-run csw-insights
+against the tenant. Compare posture score to baseline; share delta with
+steering committee.</td>
+<td>Compliance / GRC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="compliance-posture-across-frameworks">Compliance posture across
+frameworks</h2>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th style="text-align: right;">Controls evaluated</th>
+<th style="text-align: right;">Met</th>
+<th style="text-align: right;">Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HIPAA</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">29%</td>
+</tr>
+<tr>
+<td>PCI-DSS</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">17%</td>
+</tr>
+<tr>
+<td>NIST-800-53</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">38%</td>
+</tr>
+<tr>
+<td>SOC2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">25%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="notes-for-the-board-pack">Notes for the board pack</h2>
+<ul>
+<li><strong>Source of truth.</strong> Every number above is traceable to
+the underlying evidence bundle
+(<code>evidence/customer1-2026-05-01.json</code>) signed at collection
+time. Auditors get the bundle; the board gets this page.</li>
+<li><strong>Cadence.</strong> Re-running <code>csw-insights</code>
+weekly produces the trend line; the recommended cadence for board
+updates is monthly.</li>
+<li><strong>What this is not.</strong> A posture score is a management
+tool, not a compliance attestation. Refer to the framework runbooks in
+<code>CSW-Compliance-Mapping</code> for control-by-control
+evidence.</li>
+</ul>
+</body>
+</html>

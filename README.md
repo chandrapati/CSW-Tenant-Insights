@@ -18,6 +18,23 @@ The split keeps the public framework documentation independent of any
 specific tenant data, while letting us layer customer-specific narratives
 on top without polluting the upstream catalog repo.
 
+## Sample reports (open these first)
+
+Pre-rendered samples from the synthetic ACME (mature, score 75/C) and
+customer 1 (early-stage, score 29/F) bundles live in
+[`examples/sample-reports/`](./examples/sample-reports/). All three
+formats are produced from the same Markdown source so they say exactly
+the same thing.
+
+| Tenant | CISO brief (1 page) | POV findings (3-5 pages) |
+|---|---|---|
+| ACME (mature, 75/C) | [PDF](./examples/sample-reports/acme/CSW-Posture-Brief-acme.pdf) · [DOCX](./examples/sample-reports/acme/CSW-Posture-Brief-acme.docx) · [HTML](./examples/sample-reports/acme/CSW-Posture-Brief-acme.html) | [PDF](./examples/sample-reports/acme/CSW-POV-Findings-acme.pdf) · [DOCX](./examples/sample-reports/acme/CSW-POV-Findings-acme.docx) · [HTML](./examples/sample-reports/acme/CSW-POV-Findings-acme.html) |
+| Customer 1 (early, 29/F) | [PDF](./examples/sample-reports/customer1/CSW-Posture-Brief-customer1.pdf) · [DOCX](./examples/sample-reports/customer1/CSW-Posture-Brief-customer1.docx) · [HTML](./examples/sample-reports/customer1/CSW-Posture-Brief-customer1.html) | [PDF](./examples/sample-reports/customer1/CSW-POV-Findings-customer1.pdf) · [DOCX](./examples/sample-reports/customer1/CSW-POV-Findings-customer1.docx) · [HTML](./examples/sample-reports/customer1/CSW-POV-Findings-customer1.html) |
+| Side-by-side comparison | [PDF](./examples/sample-reports/compare-acme-vs-customer1.pdf) · [DOCX](./examples/sample-reports/compare-acme-vs-customer1.docx) · [HTML](./examples/sample-reports/compare-acme-vs-customer1.html) | — |
+
+**PDF** for the readout meeting. **DOCX** if you need to edit before
+sharing. **HTML** for a link in chat or email.
+
 ## The two flavors
 
 ### CISO flavor — `CSW-Posture-Brief-<tenant>.md`
@@ -54,10 +71,15 @@ csw-insights render --bundle examples/customer1-2026-05-01.json
 csw-insights compare \
   --baseline examples/acme-2026-05-01.json \
   --candidate examples/customer1-2026-05-01.json
+
+# Convert any rendered Markdown to HTML / DOCX / PDF (requires pandoc + LibreOffice)
+python -m tools.build_reports out/acme/*.md --out examples/sample-reports/acme
 ```
 
-Output lands in `out/<tenant>/`. Convert to DOCX/PDF/HTML with the same
-pandoc pipeline used in `CSW-Compliance-Mapping`.
+Markdown lands in `out/<tenant>/`. The PDF/DOCX/HTML pipeline shells out
+to `pandoc` and `soffice` (LibreOffice headless); the DOCX gets a
+LibreOffice round-trip so it opens cleanly in Microsoft Word on Mac
+and Windows (the fix we landed in `CSW-Compliance-Mapping`).
 
 ## Naming convention for tenants
 
@@ -109,8 +131,13 @@ CSW-Tenant-Insights/
 │   ├── acme/             synthetic demo tenant
 │   └── customer1/        live pilot configuration (real customer name lives only in your local creds)
 ├── tools/
-│   └── cli.py            csw-insights entry point
-└── examples/             synthetic evidence bundles for demos
+│   ├── cli.py            csw-insights entry point
+│   └── build_reports.py  convert rendered Markdown -> HTML / DOCX / PDF
+├── .build-tools/
+│   └── style.css         CSS embedded into generated HTML
+└── examples/
+    ├── *.json            synthetic evidence bundles
+    └── sample-reports/   pre-rendered HTML / DOCX / PDF for showcasing
 ```
 
 ## Contributing changes back upstream
@@ -126,6 +153,8 @@ focused on *narrative* and *insight*, not *catalog content*.
 - [x] Insights layer + both flavor renderers
 - [x] Synthetic demo bundles for ACME and customer 1
 - [x] CLI: `render`, `compare`
+- [x] DOCX / PDF / HTML pipeline (pandoc + LibreOffice round-trip for Word compatibility)
+- [x] Pre-rendered samples committed to `examples/sample-reports/`
 - [ ] Live `collect` wired to upstream evidence_bundle.py
-- [ ] DOCX / PDF / HTML pipeline integrated (use the build-html.py from CSW-Compliance-Mapping)
 - [ ] Trend reporting across multiple bundles per tenant
+- [ ] GitHub Pages deployment of the HTML samples
