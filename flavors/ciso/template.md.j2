@@ -1,0 +1,67 @@
+# CSW Posture Brief — {{ b.tenant }}
+
+*One-page board update generated {{ b.generated_at }}. Source: live evidence
+bundle from `{{ b.cluster_url }}`.*
+
+---
+
+## Posture score
+
+> **{{ score.total }} / 100  ({{ score.grade }})**
+
+| Component | Score | What it means |
+|---|---:|---|
+| Visibility | {{ score.components.visibility }} / 25 | {{ score.rationale.visibility }} |
+| Segmentation | {{ score.components.segmentation }} / 30 | {{ score.rationale.segmentation }} |
+| Hygiene | {{ score.components.hygiene }} / 20 | {{ score.rationale.hygiene }} |
+| Operations | {{ score.components.operations }} / 15 | {{ score.rationale.operations }} |
+| Compliance | {{ score.components.compliance }} / 10 | {{ score.rationale.compliance }} |
+
+---
+
+## What's working ({{ wins | length }})
+
+{% for w in wins -%}
+- **{{ w.title }}.** {{ w.detail }}
+{% endfor %}
+
+## Where to focus next ({{ risks | length }})
+
+{% for r in risks -%}
+- **{{ r.title }}** *(category: {{ r.category }}; estimated +{{ r.impact_points }} pts if addressed).* {{ r.detail }}
+{% endfor %}
+
+---
+
+## 30-day plan
+
+| Wk | Action | Owner |
+|---:|---|---|
+{% for a in plan -%}
+| {{ a.week }} | **{{ a.title }}.** {{ a.detail }} | {{ a.owner }} |
+{% endfor %}
+
+---
+
+## Compliance posture across frameworks
+
+| Framework | Controls evaluated | Met | Coverage |
+|---|---:|---:|---:|
+{% for fw, ctrls in b.framework_coverage.items() -%}
+{% set total = ctrls | length -%}
+{% set met = ctrls.values() | select('equalto', 'met') | list | length -%}
+| {{ fw }} | {{ total }} | {{ met }} | {{ '%.0f'|format(100 * met / total if total else 0) }}% |
+{% endfor %}
+
+---
+
+## Notes for the board pack
+
+- **Source of truth.** Every number above is traceable to the underlying
+  evidence bundle (`evidence/{{ b.tenant }}-{{ b.generated_at[:10] }}.json`)
+  signed at collection time. Auditors get the bundle; the board gets this page.
+- **Cadence.** Re-running `csw-insights` weekly produces the trend line; the
+  recommended cadence for board updates is monthly.
+- **What this is not.** A posture score is a management tool, not a compliance
+  attestation. Refer to the framework runbooks in `CSW-Compliance-Mapping` for
+  control-by-control evidence.

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "tenant": "acme",
+    "generated_at": "2026-05-01T18:30:00Z",
+    "cluster_url": "https://csw.acme-demo.local",
+    "collector_version": "0.1.0",
+    "synthetic": true,
+    "note": "Synthetic data for renderer demos. Numbers are illustrative."
+  },
+  "counts": {
+    "workloads_total": 4820,
+    "workloads_with_agent": 4612,
+    "scopes": 47,
+    "policies_total": 312,
+    "policies_enforced": 248,
+    "policies_absolute": 41,
+    "vulnerabilities": {
+      "critical": 7,
+      "high": 64,
+      "medium": 215
+    },
+    "enforcement_alerts_24h": 24
+  },
+  "framework_coverage": {
+    "HIPAA": {
+      "164.308(a)(1)(ii)(A)": "met",
+      "164.308(a)(4)": "met",
+      "164.308(a)(5)(ii)(B)": "met",
+      "164.310(c)": "met",
+      "164.312(a)(1)": "met",
+      "164.312(b)": "met",
+      "164.312(e)(1)": "partial"
+    },
+    "PCI-DSS": {
+      "1.2.1": "met",
+      "1.3": "met",
+      "6.4.2": "met",
+      "10.2": "met",
+      "11.3": "partial",
+      "12.5.3": "met"
+    },
+    "NIST-800-53": {
+      "AC-3": "met",
+      "AC-4": "met",
+      "AU-2": "met",
+      "CM-7": "met",
+      "RA-5": "met",
+      "SC-7": "met",
+      "SC-7(5)": "partial",
+      "SI-4": "met"
+    },
+    "DORA": {
+      "Art.5": "met",
+      "Art.8": "met",
+      "Art.9": "met",
+      "Art.10": "partial"
+    }
+  }
+}

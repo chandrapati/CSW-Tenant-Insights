@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "tenant": "drhorton",
+    "generated_at": "2026-05-01T18:30:00Z",
+    "cluster_url": "https://csw.drhorton.example",
+    "collector_version": "0.1.0",
+    "synthetic": true,
+    "note": "Synthetic placeholder. Replace with real collection output once live access is available."
+  },
+  "counts": {
+    "workloads_total": 1880,
+    "workloads_with_agent": 1206,
+    "scopes": 18,
+    "policies_total": 84,
+    "policies_enforced": 22,
+    "policies_absolute": 4,
+    "vulnerabilities": {
+      "critical": 19,
+      "high": 142,
+      "medium": 380
+    },
+    "enforcement_alerts_24h": 187
+  },
+  "framework_coverage": {
+    "HIPAA": {
+      "164.308(a)(1)(ii)(A)": "met",
+      "164.308(a)(4)": "partial",
+      "164.308(a)(5)(ii)(B)": "partial",
+      "164.310(c)": "pending",
+      "164.312(a)(1)": "partial",
+      "164.312(b)": "met",
+      "164.312(e)(1)": "pending"
+    },
+    "PCI-DSS": {
+      "1.2.1": "met",
+      "1.3": "partial",
+      "6.4.2": "pending",
+      "10.2": "partial",
+      "11.3": "pending",
+      "12.5.3": "partial"
+    },
+    "NIST-800-53": {
+      "AC-3": "partial",
+      "AC-4": "pending",
+      "AU-2": "met",
+      "CM-7": "partial",
+      "RA-5": "met",
+      "SC-7": "partial",
+      "SC-7(5)": "pending",
+      "SI-4": "met"
+    },
+    "SOC2": {
+      "CC6.1": "partial",
+      "CC6.6": "pending",
+      "CC7.1": "met",
+      "CC7.2": "partial"
+    }
+  }
+}

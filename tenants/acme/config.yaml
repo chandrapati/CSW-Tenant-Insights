@@ -1,0 +1,22 @@
+tenant_id: acme
+display_name: ACME (synthetic demo tenant)
+cluster_url: https://csw.acme-demo.local
+credentials_ref: acme-demo
+
+frameworks:
+  - HIPAA
+  - PCI-DSS
+  - NIST-800-53
+  - DORA
+
+catalogs:
+  HIPAA: ../../upstream/CSW-API-Compliance-Automation/catalog/hipaa.yaml
+  PCI-DSS: ../../upstream/CSW-API-Compliance-Automation/catalog/pci-dss-v4.yaml
+  NIST-800-53: ../../upstream/CSW-API-Compliance-Automation/catalog/nist-800-53-r5.yaml
+  DORA: ../../upstream/CSW-API-Compliance-Automation/catalog/dora.yaml
+
+flavors:
+  - ciso
+  - pov
+
+scope_filter: []

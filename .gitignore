@@ -1,0 +1,26 @@
+# Tenant evidence and rendered reports — generated artefacts, never committed
+# (commit selectively to examples/ if you want a snapshot)
+tenants/*/evidence/
+tenants/*/reports/
+out/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# macOS / editor scratch
+.DS_Store
+~$*
+.idea/
+.vscode/
+
+# Credentials never live here, but defense-in-depth
+*credentials*
+*.key
+*.pem
+.env

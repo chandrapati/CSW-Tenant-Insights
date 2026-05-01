@@ -1,0 +1,40 @@
+# Tenant configuration template.
+#
+# Copy this directory to ./tenants/<tenant-id>/ and fill in the values.
+# Credentials NEVER live here - they live in ~/.csw/tenants.yaml or in your
+# secrets manager. This file references them by `credentials_ref` only.
+
+tenant_id: example
+display_name: Example Tenant Inc.
+cluster_url: https://csw.example.com
+
+# Identifier in your local credentials store. The runner reads HMAC keys
+# from ~/.csw/tenants.yaml using this key. NEVER store keys in this repo.
+credentials_ref: example
+
+# Frameworks to evaluate for this tenant. Order matches what shows up in the
+# rendered reports. Keep to the frameworks the customer cares about; running
+# 11 by default is noisy.
+frameworks:
+  - HIPAA
+  - PCI-DSS
+  - NIST-800-53
+  - DORA
+
+# Per-framework catalog references. These point at the upstream YAML catalogs
+# in CSW-API-Compliance-Automation. They drive what gets evaluated against
+# the live tenant data when you run `csw-insights collect`.
+catalogs:
+  HIPAA: ../../upstream/CSW-API-Compliance-Automation/catalog/hipaa.yaml
+  PCI-DSS: ../../upstream/CSW-API-Compliance-Automation/catalog/pci-dss-v4.yaml
+  NIST-800-53: ../../upstream/CSW-API-Compliance-Automation/catalog/nist-800-53-r5.yaml
+  DORA: ../../upstream/CSW-API-Compliance-Automation/catalog/dora.yaml
+
+# Output preferences
+flavors:
+  - ciso
+  - pov
+
+# Optional: scope filter — only evaluate workloads in these CSW scopes.
+# Leave empty to evaluate the entire tenant.
+scope_filter: []

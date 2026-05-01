@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csw-tenant-insights"
+version = "0.1.0"
+description = "CISO + POV report flavors from CSW tenant evidence"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "PyYAML>=6.0",
+    "jinja2>=3.1",
+    "rich>=13",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+docx = ["python-docx>=1.1"]
+pdf  = ["weasyprint>=62"]
+live = ["tetpyclient>=3.7", "requests>=2.31"]
+
+[project.scripts]
+csw-insights = "tools.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["insights*", "tools*", "flavors*"]
+exclude = ["tests*", "tenants*", "examples*"]
