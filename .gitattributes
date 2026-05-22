@@ -1,5 +1,7 @@
 * text=auto eol=lf
 
+scripts/demo.sh text eol=lf
+
 *.docx binary
 *.pdf  binary
 *.png  binary
